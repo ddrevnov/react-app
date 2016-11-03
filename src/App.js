@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Greeter} from './Greeter/Greeter';
+import Nav from './Nav';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Greeter/>
+      <div>
+        <Nav/>
+        <h2>App Component</h2>
+        <button className="btn btn-success">test</button>
       </div>
     );
   }
