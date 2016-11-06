@@ -5,10 +5,14 @@ import Nav from './Nav';
 class App extends Component {
   render() {
     return (
-      <div>
-        <Nav/>
-        <h2>App Component</h2>
-        <button className="btn btn-success">test</button>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <Nav/>
+            <h2>App Component</h2>
+            {this.props.children}
+          </div>
+        </div>
       </div>
     );
   }
