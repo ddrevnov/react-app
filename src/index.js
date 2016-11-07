@@ -8,6 +8,8 @@ import Weather from './Weather/Weather';
 import About from './About';
 import Examples from './Examples';
 
+import 'bootstrap/dist/css/bootstrap.css';
+
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>

@@ -17,6 +17,7 @@ export default {
           }
         },
         err => {
+          console.log(err.data.message);
           throw new Error(err.data.message);
         });
   }

@@ -18,9 +18,9 @@ class WeatherForm extends Component {
         <div className="form-group">
           <input
             ref="location"
-            type="text"
+            type="search"
             className="form-control"
-            placeholder="" />
+            placeholder="Search weather" />
         </div>
         <button type="submit" className="btn btn-default">Get Weather</button>
       </form>

@@ -5,6 +5,22 @@ import { IndexLink } from 'react-router';
 let NavLink = activeComponent('li');
 
 class Nav extends Component {
+  static contextTypes = {
+    router: React.PropTypes.object.isRequired
+  };
+
+  onSearch(e) {
+    e.preventDefault();
+
+    let location = this.refs.location.value.trim();
+    let encodedLocation = encodeURIComponent(location);
+
+    if (location.length > 0) {
+      this.refs.location.value = '';
+      this.context.router.push(`/?location=${encodedLocation}`);
+    }
+  }
+
   render() {
     return (
     <nav className="navbar navbar-default">
@@ -23,11 +39,20 @@ class Nav extends Component {
               <NavLink to="/examples">Examples</NavLink>
               <NavLink to="/about">About</NavLink>
           </ul>
-          <ul className="nav navbar-nav navbar-right">
-            <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-          </ul>
-        </div>{/*/.nav-collapse */}
-      </div>{/*/.container-fluid */}
+          <div className="nav navbar-nav navbar-right">
+              <form onSubmit={this.onSearch.bind(this)}>
+                <div className="form-group">
+                  <input
+                    ref="location"
+                    type="search"
+                    className="form-control"
+                    placeholder="Search weather"/>
+                  <button className="btn btn-default">Search</button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
     </nav>
     );
   }
